@@ -1,12 +1,3 @@
-// add item to cart button
-var addButton = document.getElementById("add-button");
-addButton.addEventListener( "click", addItemToCart);
-
-// clear cart button
-var btn = document.getElementById("clear-cart");
-btn.addEventListener( "click", clearCart);
-
-
 
 
 // Shopping Cart
@@ -20,7 +11,9 @@ function Item(name, price, qty) {
 };
 
 // Add item to cart
-function addItemToCart(name, price, qty) {
+function addItemToCart(name, price, idInputQty) {
+    //console.log(name,price,idInputQty);
+    var qty = document.getElementById(idInputQty).value;
     for (var i in cart) {
         if (cart[i].name === name) {
             cart[i].qty += qty;
@@ -29,64 +22,27 @@ function addItemToCart(name, price, qty) {
     }
     var item = new Item(name, price, qty);
     cart.push(item);
+
+     //display the item in teh list (cart)
+     var tr = '<tr><td>' + name + '</td><td>' + qty + '</td><td>' + price + '</td><td>' + (qty * price).toFixed(2) + '</td></tr>';
+     document.getElementById("tblCart").innerHTML += tr;
+      
+     //update the total to pay
+     total += price * qty;
+ 
+     //display the new total
+     document.getElementById('total').value = total.toFixed(2);
 }
 
-    addItemToCart("Snickers", 1.25, 1);
-    addItemToCart("Kisses", 1.00, 1);
-    addItemToCart("Payday", 1.15, 1);
-
-// Delete item from cart
-function deleteItemFromCart(name) {
-    for (var i in cart) {
-        if (cart[i].name === name) {
-            cart.splice(i, 1);
-            break;
-        }
-    }
-}
-
-//console.log(cart);
-
-// clear all items from Cart
-function clearCart() {
-    cart = [];
-}
-
-// cart qty and price total
-function qtyCart() {
-    var totalQty = 0;
-    for (var i in cart) {
-        totalQty += cart[i].qty;
-    }
-    return totalQty;
-}
-
-//console.log( qtyCart() );
-
-function totalCart() {
-    var totalPrice = 0;
-    for (var i in cart) {
-        totalPrice += cart[i].price;
-    }
-    return totalPrice;
-}
-
-//console.log( totalCart() );
 
 // Display Cart
-function listCart() { // array of Items
-    var cartCopy = [];
-    for (var i in cart) {
-        var item = cart[i];
-        var itemCopy = {};
-        for (var p in item) {
-            itemCopy[p] = item[p];
-        }
-        cartCopy.push(itemCopy);
-    }
-    return cartCopy;
+var total = 0;
+
+   
+// clear all items from Cart
+function clearCart() {
+    document.getElementById("tblCart").innerHTML = '<thead><th>Item</th><th>Qty</th><th>Price</th></thead>';
+    total = 0;
+    document.getElementById('total').value = total;
+    cart = [];
 }
-
-var array = listCart();
-
-//console.log( array );

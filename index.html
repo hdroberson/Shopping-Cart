@@ -33,22 +33,22 @@
         </thead>
         <tbody>
             <tr>
-                <td><a class="add-to-cart" href="#" data-name="Snickers" >Snickers</a></td>
-                <td><a class="add-to-cart" href="#" data-price="1.25" >$1.25</a></td>
-                <td><a class="add-to-cart" href="#" >1</a></td>
-                <td><button onclick="addItemToCart()" id="add-button" class="btn btn-primary" type="button">Add</button></td>
+                <td>Snickers</td>
+                <td>$1.25</td>
+                <td><input type="number" id="item1"></td>
+                <td><button onclick="addItemToCart('Snickers', 1.25, 'item1')" id="add1" class="btn btn-primary" type="button">Add To Cart</button></td>
             </tr>
             <tr>
-                <td><a class="add-to-cart" href="#" data-name="Kisses" >Kisses</a></td>
-                <td><a class="add-to-cart" href="#" data-price="1.00" >$1.00</a></td>
-                <td><a class="add-to-cart" href="#" >1</a></td>
-                <td><button id="add-button" class="btn btn-primary" type="button">Add</button></td>
+                <td>Kisses</td>
+                <td>$1.00</td>
+                <td><input type="number" id="item2"></td>
+                <td><button onclick="addItemToCart('Kisses', 1.00, 'item2')" id="add2" class="btn btn-primary" type="button">Add To Cart</button></td>
             </tr>
             <tr>
-                <td><a class="add-to-cart" href="#" data-name="Payday" >Payday</a></td>
-                <td><a class="add-to-cart" href="#" data-price="1.15" >$1.15</a></td>
-                <td><a class="add-to-cart" href="#" >1</a></td>
-                <td><button id="add-button" class="btn btn-primary" type="button">Add</button></td>
+                <td>Payday</td>
+                <td>$1.15</td>
+                <td><input type="number" id="item3"></td>
+                <td><button onclick="addItemToCart('Payday', 1.15, 'item3')" id="add3" class="btn btn-primary" type="button">Add To Cart</button></td>
             </tr>
         </tbody>
         <tfoot>
@@ -60,9 +60,17 @@
 
     <div id="cart-display">
         <h3>Your Cart</h3>
-        <ul id="show-cart">
-            <!-- -->
-        </ul>
+        <table id="tblCart">
+            <thead>
+               <th>Item</th>
+               <th>Qty</th>
+               <th>Price</th>
+               <th>Total</th>
+            </thead>
+        </table>
+        <br>
+        <label>Total Cost: </label>
+        <input type="text" readonly="readonly" id="total">
     </div>
 
 

@@ -10,9 +10,12 @@ body {
     margin-left: 60px;
 }
 
-tr {
-    padding-right: 20px;
+tbody td {
+    padding: 20px;
+}
 
+input {
+    width: 50px;
 }
 
 a:hover {
@@ -27,8 +30,21 @@ h3 {
 
 #cart-display {
     border: 1px solid whitesmoke;
-    height: 250px;
-    width: 400px;
+    height: auto;
+    width: 443px;
     margin-left: 60px;
     background-color: aliceblue;
 }
+
+#tblCart thead th, label {
+    padding-left: 20px;
+}
+
+
+#total {
+    background-color: aquamarine;
+    border: black solid 1px;
+    width: 60px;
+    padding: 5px;
+}
+
